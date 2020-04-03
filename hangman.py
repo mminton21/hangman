@@ -1,4 +1,8 @@
-current_word = ""
+from random_word import RandomWords
+"""import a class to find a random word"""
+
+r = RandomWords()
+#current_word = r.get_random_word()
 current_word_letters = []
 hanged_letters = []
 turns = 7
@@ -6,7 +10,7 @@ active = True
 tick = 1
 
 while active:
-    current_word=input("What's the current word? ")
+    current_word=r.get_random_word()
     length_of_word=len(current_word)
 
     for letters in current_word:
@@ -50,6 +54,7 @@ while active:
                     break
                 else:
                     print("Sorry, you dope. You've lost")
+                    print("The correct word was " + current_word + ".")
                     break
 
         if turns == 1:
@@ -60,6 +65,7 @@ while active:
                 break
             else:
                 print("Sorry, you dope. You've lost")
+                print("The correct word was " + current_word + ".")
                 break
 
         turns -= 1
@@ -74,3 +80,4 @@ while active:
     tick = 1
     hanged_letters = []
     current_word_letters = []
+    turns = 7
